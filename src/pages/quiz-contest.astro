@@ -1,0 +1,166 @@
+---
+layout: null
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎉 Win a $100 Gift Card Quiz Contest</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: #fff;
+      max-width: 600px;
+      width: 90%;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h1 {
+      color: #ff4081;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .timer {
+      font-size: 18px;
+      color: red;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    img {
+      max-width: 250px;
+      margin: 10px auto;
+      border-radius: 10px;
+    }
+    .progress-bar {
+      width: 100%;
+      background: #ddd;
+      height: 10px;
+      border-radius: 5px;
+      margin: 15px 0;
+    }
+    .progress {
+      height: 10px;
+      width: 0%;
+      background: #28a745;
+      border-radius: 5px;
+      transition: width 0.3s;
+    }
+    .question {
+      display: none;
+      margin: 20px 0;
+    }
+    .question.active {
+      display: block;
+    }
+    button {
+      background: #28a745;
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    button:hover {
+      background: #218838;
+    }
+    .result {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎁 Take the Quiz & Win a $100 Gift Card!</h1>
+    <div class="timer">⏳ Hurry! Time left: <span id="time">2:00</span></div>
+    <img src="https://i.imgur.com/O1bGkYj.png" alt="Gift Card" />
+
+    <div class="progress-bar"><div class="progress"></div></div>
+
+    <div id="quiz">
+      <div class="question active" data-index="0">
+        <p><strong>Question 1:</strong> Which company sells Amazon gift cards?</p>
+        <button class="answer">Amazon</button>
+        <button class="answer">Google</button>
+      </div>
+      <div class="question" data-index="1">
+        <p><strong>Question 2:</strong> How much is the prize?</p>
+        <button class="answer">$100</button>
+        <button class="answer">$10</button>
+      </div>
+      <div class="question" data-index="2">
+        <p><strong>Question 3:</strong> Do you want to claim your prize now?</p>
+        <button class="answer">Yes</button>
+        <button class="answer">No</button>
+      </div>
+    </div>
+
+    <div class="result">
+      <h2>🎉 Congratulations!</h2>
+      <p>You completed the quiz successfully.  
+      To claim your <strong>$100 gift card</strong>, please complete one quick task on the next page.</p>
+      <button onclick="window.location.href='https://your-ogads-link.com'">👉 Claim Your Prize</button>
+    </div>
+  </div>
+
+  <script>
+    const answers = document.querySelectorAll('.answer');
+    const questions = document.querySelectorAll('.question');
+    const result = document.querySelector('.result');
+    const progress = document.querySelector('.progress');
+    let currentIndex = 0;
+
+    // Progress bar update
+    function updateProgress() {
+      const percent = ((currentIndex) / questions.length) * 100;
+      progress.style.width = percent + '%';
+    }
+    updateProgress();
+
+    answers.forEach(answer => {
+      answer.addEventListener('click', () => {
+        questions[currentIndex].classList.remove('active');
+        currentIndex++;
+        updateProgress();
+        if (currentIndex < questions.length) {
+          questions[currentIndex].classList.add('active');
+        } else {
+          progress.style.width = '100%';
+          document.querySelector('#quiz').style.display = 'none';
+          result.style.display = 'block';
+        }
+      });
+    });
+
+    // Countdown Timer (2 min)
+    let time = 120;
+    const timerEl = document.getElementById('time');
+    const countdown = setInterval(() => {
+      let min = Math.floor(time / 60);
+      let sec = time % 60;
+      timerEl.textContent = `${min}:${sec < 10 ? '0' + sec : sec}`;
+      if (time <= 0) {
+        clearInterval(countdown);
+        document.querySelector('#quiz').style.display = 'none';
+        result.style.display = 'block';
+        result.querySelector('h2').textContent = "⏰ Time's up!";
+      }
+      time--;
+    }, 1000);
+  </script>
+</body>
+</html>
