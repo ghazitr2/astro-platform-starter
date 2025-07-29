@@ -7,7 +7,7 @@ layout: null
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🎉 Win a $100 Gift Card Quiz Contest</title>
+  <title>🎉 Lifestyle Quiz – Win a $10 Amazon Gift Card</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -74,6 +74,9 @@ layout: null
       font-size: 18px;
       cursor: pointer;
       margin-top: 15px;
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
     }
     button:hover {
       background: #218838;
@@ -85,35 +88,62 @@ layout: null
 </head>
 <body>
   <div class="container">
-    <h1>🎁 Take the Quiz & Win a $100 Gift Card!</h1>
-    <div class="timer">⏳ Hurry! Time left: <span id="time">2:00</span></div>
-    <img src="https://i.imgur.com/O1bGkYj.png" alt="Gift Card" />
+    <h1>🎁 Take the Lifestyle Quiz & Win a $10 Amazon Gift Card!</h1>
+    <div class="timer">⏳ Hurry! Time left: <span id="time">3:00</span></div>
+    <img src="data:image/png;base64,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" alt="Gift Card" />
 
     <div class="progress-bar"><div class="progress"></div></div>
 
     <div id="quiz">
       <div class="question active" data-index="0">
-        <p><strong>Question 1:</strong> Which company sells Amazon gift cards?</p>
-        <button class="answer">Amazon</button>
-        <button class="answer">Google</button>
+        <p><strong>Question 1:</strong> How often do you exercise each week?</p>
+        <button class="answer">0-1 times</button>
+        <button class="answer">2-3 times</button>
+        <button class="answer">4+ times</button>
       </div>
       <div class="question" data-index="1">
-        <p><strong>Question 2:</strong> How much is the prize?</p>
-        <button class="answer">$100</button>
-        <button class="answer">$10</button>
+        <p><strong>Question 2:</strong> What's your favorite way to relax?</p>
+        <button class="answer">Watching movies</button>
+        <button class="answer">Reading</button>
+        <button class="answer">Spending time outdoors</button>
       </div>
       <div class="question" data-index="2">
-        <p><strong>Question 3:</strong> Do you want to claim your prize now?</p>
-        <button class="answer">Yes</button>
-        <button class="answer">No</button>
+        <p><strong>Question 3:</strong> How many hours of sleep do you usually get?</p>
+        <button class="answer">Less than 6 hours</button>
+        <button class="answer">6-8 hours</button>
+        <button class="answer">More than 8 hours</button>
+      </div>
+      <div class="question" data-index="3">
+        <p><strong>Question 4:</strong> What's your go-to beverage in the morning?</p>
+        <button class="answer">Coffee</button>
+        <button class="answer">Tea</button>
+        <button class="answer">Juice or Water</button>
+      </div>
+      <div class="question" data-index="4">
+        <p><strong>Question 5:</strong> How do you prefer to spend weekends?</p>
+        <button class="answer">Traveling</button>
+        <button class="answer">Relaxing at home</button>
+        <button class="answer">Going out with friends</button>
+      </div>
+      <div class="question" data-index="5">
+        <p><strong>Question 6:</strong> Which device do you use most often?</p>
+        <button class="answer">Phone</button>
+        <button class="answer">Laptop</button>
+        <button class="answer">Tablet</button>
+      </div>
+      <div class="question" data-index="6">
+        <p><strong>Question 7:</strong> Do you enjoy trying new foods?</p>
+        <button class="answer">Yes, always!</button>
+        <button class="answer">Sometimes</button>
+        <button class="answer">Not really</button>
       </div>
     </div>
 
     <div class="result">
       <h2>🎉 Congratulations!</h2>
-      <p>You completed the quiz successfully.  
-      To claim your <strong>$100 gift card</strong>, please complete one quick task on the next page.</p>
-      <button onclick="window.location.href='https://your-ogads-link.com'">👉 Claim Your Prize</button>
+      <p>You completed the lifestyle quiz successfully.  
+      To claim your <strong>$10 Amazon gift card</strong>, please complete one quick task on the next page.</p>
+      <button onclick="window.location.href='https://unlockcontent.net/cl/i/lk21qj'">👉 Claim Your Prize</button>
     </div>
   </div>
 
@@ -146,8 +176,8 @@ layout: null
       });
     });
 
-    // Countdown Timer (2 min)
-    let time = 120;
+    // Countdown Timer (3 min)
+    let time = 180;
     const timerEl = document.getElementById('time');
     const countdown = setInterval(() => {
       let min = Math.floor(time / 60);
